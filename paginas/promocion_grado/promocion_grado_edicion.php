@@ -68,7 +68,7 @@
                                 <!--///--------------------------------------------------------------->
                                 <div class="row" >
                                   <div class="col">
-                                    <div class="col-sm-2">Número de control</div>
+                                    <div class="col-sm-2">CUIP</div>
                                     <div class="col-sm-3">
                                         <input id="cuip" class="form form-control" onkeyup="mayus(this)" value="<?php echo $elemento[0]->cuip; ?>" name="cuip" type="text" style='font-size: 12pt;
                                         font-weight: bold; color: red; text-align: center;' maxlength="20" required readonly>

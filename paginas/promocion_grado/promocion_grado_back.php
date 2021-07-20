@@ -84,11 +84,6 @@ $fecha_emision_constancia)
         $promo[19]="";
         $promo[20]="";
         $promo[21]="";
-        //$folio_prom1="";
-        //$fecha_ingreso1="";
-        //$categoria_actual1="";
-        //$antiguedad_cate1="";
-        //$categoria_asp1="";
       }
       echo
             '<tr>
@@ -228,15 +223,14 @@ $fecha_emision_constancia)
       }elseif ($control == "") {
         $query_registro="SELECT * FROM promocion_grado";
       }
-
       $respuesta_registro = $conn->query($query_registro);
+
       if (empty($respuesta_registro)) {
         echo "No hay registro del elemento";
       }elseif (!empty($respuesta_registro)) {
         while ($registro=mysqli_fetch_row($respuesta_registro)) {
           $response = file_get_contents("http://172.18.0.28/swebAcademia/servicio/?pass=c3s4RM494p&user=cesar&cuip=".$registro[1], true, stream_context_create($arrContextOptions));
           $policia = json_decode($response);
-
           echo '
           <tr>
             <td>'.$policia[0]->nombre.'</td>
