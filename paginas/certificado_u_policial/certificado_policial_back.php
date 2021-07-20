@@ -145,6 +145,97 @@ class Certificado
       }
       $conn->close();
     }
+
+    public function excelCertificado($control)
+    {
+      $i=1;
+      include '../../requires/conexion.php';
+      $arrContextOptions=array(
+        "ssl"=>array(
+            'method'=>"GET",
+            "verify_peer"=>false,
+            "verify_peer_name"=>false,
+        ),
+      );
+      require '../../requires/conexion.php';
+      if ($control != "") {
+        $query_registro="SELECT * FROM certificado_u_policial WHERE ncontrol ='$control'";
+      }elseif ($control == "") {
+        $query_registro="SELECT * FROM certificado_u_policial";
+      }
+      $respuesta_registro = $conn->query($query_registro);
+
+      //-------------------------------------1
+      error_reporting(E_ALL);
+      ini_set('display_errors', TRUE);
+      ini_set('display_startup_errors', TRUE);
+      define('EOL',(PHP_SAPI == 'cli') ? PHP_EOL : '<br />');
+      /** Include PHPExcel */
+      require '../../librerias/PHPExcel/Classes/PHPExcel.php';
+      $objPHPExcel = new PHPExcel();
+      $objPHPExcel->getProperties()->setCreator("Academia de Policia Municipal")
+                     ->setTitle("C3");
+
+
+      $objPHPExcel->setActiveSheetIndex(0)
+                  ->setCellValue('A1', 'NOMBRE COMPLETO')
+                  ->setCellValue('B1', 'CUIP')
+                  ->setCellValue('C1', 'NÚMERO DE CONTROL')
+                  ->setCellValue('D1', 'CUP')
+                  ->setCellValue('E1', 'FECHA DEL PROCESO DE LA EVALUACIÓN DE CONTROL DE CONFIANZA')
+                  ->setCellValue('F1', 'FECHA DE CONCLUSIÓN DE LA CAPACITACIÓN DE FORMACIÓN INICIAL O SU EQUIVALENTE')
+                  ->setCellValue('G1', 'FECHA DE EVALUCIÓN DE COMPETENCIAS BÁSICAS')
+                  ->setCellValue('H1', 'FECHA DE EVALUCIÓN DEL DESEMPEÑO')
+                  ->setCellValue('I1', 'FECHA DE EMISIÓN DEL CUP');
+
+      //-------------------------------------/1
+      if (empty($respuesta_registro)) {
+        $objPHPExcel->setActiveSheetIndex(0)
+        ->setCellValue('A'.$i, "")
+        ->setCellValue('B'.$i, "")
+        ->setCellValue('C'.$i, "")
+        ->setCellValue('D'.$i, "")
+        ->setCellValue('E'.$i, "")
+        ->setCellValue('F'.$i, "")
+        ->setCellValue('G'.$i, "")
+        ->setCellValue('H'.$i, "")
+        ->setCellValue('I'.$i, "");
+      }elseif (!empty($respuesta_registro)) {
+        while ($registro=mysqli_fetch_row($respuesta_registro)) {
+          $response = file_get_contents("http://172.18.0.28/swebAcademia/servicio/?pass=c3s4RM494p&user=cesar&cuip=".$registro[1], true, stream_context_create($arrContextOptions));
+          $policia = json_decode($response);
+
+          $i=$i+1;
+          $objPHPExcel->setActiveSheetIndex(0)
+                      ->setCellValue('A'.$i, $policia[0]->nombre)
+                      ->setCellValue('B'.$i, $policia[0]->cuip)
+                      ->setCellValue('C'.$i, $policia[0]->no_control)
+                      ->setCellValue('D'.$i, $registro[2])
+                      ->setCellValue('E'.$i, $registro[3])
+                      ->setCellValue('F'.$i, $registro[4])
+                      ->setCellValue('G'.$i, $registro[5])
+                      ->setCellValue('H'.$i, $registro[6])
+                      ->setCellValue('I'.$i, $registro[7]);
+        }
+      }
+
+      $conn->close();
+      $objPHPExcel->getActiveSheet()->getColumnDimension('A')->setWidth(25);
+      $objPHPExcel->getActiveSheet()->getColumnDimension('B')->setWidth(25);
+      $objPHPExcel->getActiveSheet()->getColumnDimension('C')->setWidth(25);
+      $objPHPExcel->getActiveSheet()->getColumnDimension('D')->setWidth(25);
+      $objPHPExcel->getActiveSheet()->getColumnDimension('E')->setWidth(25);
+      $objPHPExcel->getActiveSheet()->getColumnDimension('F')->setWidth(25);
+      $objPHPExcel->getActiveSheet()->getColumnDimension('G')->setWidth(25);
+
+      $callStartTime = microtime(true);
+
+      $objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel2007');
+      $objWriter->save(str_replace('.php', '.xlsx', "certificado_policial.xlsx"));
+      $callEndTime = microtime(true);
+      $callTime = $callEndTime - $callStartTime;
+    }
+
   }
 $certificado = new Certificado();
 
@@ -159,5 +250,6 @@ if (isset($_POST["control"]) && isset($_POST["cup"]) && isset($_POST["proceso"])
 
 if (isset($_POST['n_busqueda'])) {
   $certificado->buscarRegistro($_POST['n_busqueda']);
+  $certificado->excelCertificado($_POST['n_busqueda']);
 }
 ?>
