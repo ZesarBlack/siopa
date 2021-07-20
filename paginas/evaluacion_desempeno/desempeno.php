@@ -2,6 +2,7 @@
 <html lang="en">
   <?php require '../../requires/head2.php';
   require 'desempeno_back.php';
+  $desempeno->excelDesempeno("");
   ?>
   <body class="nav-md">
     <div class="container body">
@@ -50,6 +51,13 @@
                             </div>
                             <div class="col-md-4">
                               <input type="text" id="busqueda_r" name="busqueda_r" onkeyup="buscarRegistros(this)" class="form form-control" placeholder="Buscar registros por CUIP" value="">
+                            </div>
+                            <div class="col-md-4" >
+                            </div>
+                            <div class="col-md-2" >
+                              <form class="" action="exceldescarga.php" method="post">
+                                  <button type="submit" class="btn btn-success" name="button" >Descargar reporte de busqueda</button>
+                              </form>
                             </div>
                             <div class="x_content" style="overflow:auto; overflow:scroll; height: 50em">
                                 <!-- content starts here ////////////////////-->
