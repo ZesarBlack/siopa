@@ -7,7 +7,7 @@
         echo '
 
         <li>
-         <a href="#"><i class="fa fa-flag-checkered"></i>Página 1</a>
+         <a href="../../paginas/documentacion/documentacion.php"><i class="fa fa-flag-checkered"></i>Documentación</a>
         </li>
         ';
       }

@@ -17,74 +17,8 @@ class Rutas
             'inicio' => 1,
         ),
         array(
-            'formacionContinua' => 1,
+            'documentacion' => 1,
         ),
-        array(
-            'asignar_curso_policia' => 1,
-        ),
-        array(
-            'calificar_policias' => 1,
-        ),
-        array(
-            'ingresos' => 1,
-        ),
-        array(
-            'capacitacion_continua' => 1,
-        ),
-        array(
-            'pruebas' => 1,
-        ),
-        array(
-            'Sol_Control_Conf' => 1,
-        ),
-        array(
-            'competencias_basicas' => 1,
-        ),
-        array(
-            'evaluacion_desempeno' => 1,
-        ),
-        array(
-            'certificado_u_policial' => 1,
-        ),
-
-        array(
-            'historial_policia' => 1,
-        ),
-        array(
-            'promocion_grado' => 1,
-        ),
-        array(
-            'estimulos' => 1,
-        ),
-        array(
-            'licencias_y_comisiones' => 1,
-        ),
-        array(
-            'procedimiento_administrativo' => 1,
-        ),
-        array(
-            'regimen_diciplinario' => 1,
-        ),
-        array(
-            'conclusion_servicio' => 1,
-        ),
-        array(
-            'documentacion_policia' => 1,
-        ),
-        array(
-            'seguimiento_elemento' => 1,
-        ),
-        array(
-            'subir' => 1,
-        ),
-        array(
-            'expediente_individual' => 1,
-        ),
-        //-------------------------------------------
-        array(
-            'detalle_cadete' => 2,
-        )
-
 
     );
 
