@@ -8,7 +8,16 @@ class Login
 		$key = md5($contraseña."usrHSCSPCP");//se crea la llave con la contraseña
 		$pass = crypt($contraseña,$key);//crea un contradeña usando el dato del usuario y la llave
 		//return $pass;
-
+		//--------------------------------usuario de prueba
+		session_name('ACADEMIAHSCSPCP');
+		session_start();
+		$_SESSION['usuario'] = "administrador";
+		$_SESSION['apellidoP'] = "root";
+		$_SESSION['apellidoM'] = "root";
+		$_SESSION['rol'] = 1;
+		return 1;
+		//--------------------------------/usuario de prueba
+/*
 		include('../requires/conexion.php');
 
 		$query_clas = "SELECT * FROM usuarios_cat WHERE usr = '$usuario' AND 	pass='$pass'";
@@ -30,6 +39,7 @@ class Login
 				return 0;
 					exit();
 				}
+				*/
 	}
 /*
 	function validarcadete($ncontrol)

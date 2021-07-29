@@ -79,6 +79,10 @@ class Rutas
         ),
         array(
             'expediente_individual' => 1,
+        ),
+        //-------------------------------------------
+        array(
+            'detalle_cadete' => 2,
         )
 
 

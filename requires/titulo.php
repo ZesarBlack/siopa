@@ -6,7 +6,7 @@
   </div>
   <div class="col-xs-4 tile_stats_count" style="margin-top: 20px; margin-right: -20px;">
     <div class="count">
-      <h4>Herramienta de seguridad y <br> control de servicio <br> profesional de carrera policial</h4>
+      <h3>Oficialia de Partes</h3>
     </div>
   </div>
 </div>
