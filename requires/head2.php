@@ -26,7 +26,7 @@ $seguridad->auditarPagina($_SESSION['usuario'] ,getcwd());
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" href="images/favicon.ico" type="image/ico" />
 
-  <title>Herramienta de Seguimiento y Control Servicio Profesional de Carrera Policial</title>
+  <title>Oficialia de partes</title>
 
   <!-- Bootstrap -->
   <link href="../../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">

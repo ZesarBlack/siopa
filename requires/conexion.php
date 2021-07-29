@@ -1,3 +1,3 @@
 <?php
-$conn = new mysqli("localhost", "root", "", "HSCSPCP");
+$conn = new mysqli("localhost", "root", "", "");
 ?>
