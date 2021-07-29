@@ -42,11 +42,11 @@
 
                 <div class="row" >
                     <div class="col-md-12">
-                        <div class="x_panel tile"  style="border: 2px solid #CABFFF;">
+                        <div class="x_panel tile"  style="border: 2px solid #E9F2FF;">
                             <div class="x_content ">
                                 <!-- content starts here ////////////////////-->
                                 <div class="col-md-12 col-sm-12 col-xs-12">
-                                  <div class="x_panel fixed_height_320">
+                                  <div class="x_panel fixed_height_320" style="background: #F0F0F0;">
                                     <div class="x_title">
                                       <h2>Datos Generales </h2>
                                       <div class="clearfix"></div>
@@ -94,7 +94,7 @@
                                   </div>
                                 </div>
                                 <div class="col-md-12 col-sm-12 col-xs-12">
-                                  <div class="x_panel fixed_height_320">
+                                  <div class="x_panel fixed_height_320" style="background: #F0F0F0;">
                                     <div class="x_title">
                                       <h2>Datos del remitente </h2>
                                       <div class="clearfix"></div>
@@ -131,7 +131,7 @@
                                   </div>
                                 </div>
                                 <div class="col-md-12 col-sm-12 col-xs-12">
-                                  <div class="x_panel fixed_height_320">
+                                  <div class="x_panel fixed_height_320" style="background: #F0F0F0;">
                                     <div class="x_title">
                                       <h2>Descripción del contenido</h2>
                                       <div class="clearfix"></div>
@@ -148,7 +148,7 @@
                                 </div>
 
                                 <div class="col-md-5 col-sm-5 col-xs-5">
-                                  <div class="x_panel fixed_height_320" >
+                                  <div class="x_panel fixed_height_320" style="background: #F0F0F0;">
                                     <div class="x_title">
                                       <h2>Tiempo de respuesta</h2>
                                       <div class="clearfix"></div>
